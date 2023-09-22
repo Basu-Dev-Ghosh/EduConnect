@@ -8,7 +8,6 @@ import AuthContext from "../../context/authContext";
 import { useQueryClient } from "react-query";
 import axios from "axios";
 import { server } from "../../App";
-import { PiStudentDuotone } from "react-icons/pi";
 
 // import React, { useState } from "react";
 import { Button, Modal } from "antd";
@@ -51,17 +50,6 @@ const Header = () => {
   const [auth, refetch, isLoading] = useContext(AuthContext);
   const { authenticated, user } = auth;
 
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const showModal = () => {
-    setIsModalOpen(true);
-  };
-  const handleOk = () => {
-    setIsModalOpen(false);
-  };
-  const handleCancel = () => {
-    setIsModalOpen(false);
-  };
-
   window.addEventListener("scroll", () => {
     if (window.scrollY > 200) {
       setHeaderFiexd(true);
@@ -85,19 +73,19 @@ const Header = () => {
     }
   }
 
-  // const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
-  // const showModal = () => {
-  //   setIsModalOpen(true);
-  // };
+  const showModal = () => {
+    setIsModalOpen(true);
+  };
 
-  // const handleOk = () => {
-  //   setIsModalOpen(false);
-  // };
+  const handleOk = () => {
+    setIsModalOpen(false);
+  };
 
-  // const handleCancel = () => {
-  //   setIsModalOpen(false);
-  // };
+  const handleCancel = () => {
+    setIsModalOpen(false);
+  };
 
   // const buttonStyle = {
   //   // backgroundColor: 'red', // Customize the background color
@@ -125,7 +113,6 @@ const Header = () => {
   return (
     <header
       className={`header-section ${headerFiexd ? "header-fixed fadeInUp" : ""}`}
-      style={{ marginTop: "-10px" }}
     >
       <div
         className={`header-top ${socialToggle ? "open" : ""}`}
@@ -190,11 +177,6 @@ const Header = () => {
                   <li>
                     <NavLink to="/course">Projects</NavLink>
                   </li>
-                  {authenticated ? (
-                    <li>
-                      <NavLink to="/team-single">Profile</NavLink>
-                    </li>
-                  ) : null}
 
                   {/* <li className="menu-item-has-children">
                                         <a href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-bs-offset="0,0">Blog</a>
@@ -223,12 +205,8 @@ const Header = () => {
                   <li>
                     <NavLink to="/college">College</NavLink>
                   </li>
-
                   <li>
                     <NavLink to="/contact">Contact</NavLink>
-                  </li>
-                  <li>
-                    <NavLink to="/aboutUs">About Us</NavLink>
                   </li>
                   {authenticated ? (
                     <>
@@ -241,17 +219,16 @@ const Header = () => {
                             marginRight: "40px",
                             display: "flex",
                             alignItems: "center",
-                            marginLeft: "20px",
-                            backgroundColor: "#f16126",
+                            marginLeft: "240px",
                           }}
                         >
-                          <span className="flex items-center ">
+                          <i className=""></i>{" "}
+                          <span>
                             {" "}
                             <AiOutlinePlus
                               style={{
                                 fontSize: "1.2rem",
-                                marginTop: "2px",
-                                marginRight: "4px",
+                                marginBottom: "4px",
                               }}
                             />{" "}
                             ADD PROJECT
@@ -259,27 +236,10 @@ const Header = () => {
                         </Link>
                       </li>
                       <li>
-                        {/*  <button className="logout-btn" onClick={logout}>
+                        <button className="logout-btn" onClick={logout}>
                           <MdLogout />
                           Logout
-                        </button> */}
-                        <Button
-                          className="logout-btn"
-                          type="primary"
-                          onClick={showModal}
-                        >
-                          <MdLogout />
-                          Log Out
-                        </Button>
-                        <Modal
-                          style={{ top: 300 }}
-                          title="Confirm Logout"
-                          open={isModalOpen}
-                          onOk={logout}
-                          onCancel={handleCancel}
-                        >
-                          <p>Are you sure, you want to log out?</p>
-                        </Modal>
+                        </button>
                       </li>
                     </>
                   ) : (
@@ -287,7 +247,7 @@ const Header = () => {
                       <li>
                         {" "}
                         <Link
-                          to="/loginas"
+                          to="/login"
                           className="login"
                           style={{
                             borderRadius: "10px",
@@ -303,7 +263,7 @@ const Header = () => {
                         </Link>
                       </li>
                       <li>
-                        <button
+                        <Button
                           to="/signUpas"
                           className="signup"
                           onClick={showModal}
@@ -312,15 +272,12 @@ const Header = () => {
                             color: "black",
                             border: "1px solid black",
                             borderRadius: "10px",
-                            padding: "12px 18px",
-                            background: "transparent",
-                            color: "#000",
-                            border: "1px solid #000",
-                            marginTop: "4px",
+                            paddingBottom: "10px",
+                            height: "55px",
                           }}
                         >
                           <i className="icofont-users"></i> <span>SIGN UP</span>{" "}
-                        </button>
+                        </Button>
                         <Modal
                           title="Sign Up"
                           open={isModalOpen}
@@ -339,14 +296,13 @@ const Header = () => {
                                 paddingLeft: "10px",
                               }}
                             >
-                              {/* PiStudentDuotone */}
+                            {/* PiStudentDuotone */}
                               <PiStudentDuotone
-                                // src={studentImage}
+                                src={studentImage}
                                 style={{
                                   width: "50px",
                                   height: "50px",
                                   borderRadius: "50%",
-                                  color: "orangered",
                                   // borderRadius: "50%",
                                   border: "1px solid orange",
                                 }}
