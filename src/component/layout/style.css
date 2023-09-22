@@ -1,9 +1,62 @@
+
+
+.home::after{
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 2px; /* Adjust the line thickness as needed */
+  background-color: #f16126; /* Color of the line */
+  transform: scaleX(0); /* Initially, the line has no width */
+  transform-origin: center; /* Start scaling from the center */
+  transition: transform 0.3s ease; 
+}
+
+.home:hover::after{
+  transform:scaleX(1);
+}
+
+.contact:after{
+  
+}
+
+.contact:hover::after{
+  transform:scaleX(1);
+}
+
+.course:hover{
+  color: #f16126;
+}
+
+
 .addproject {
+<<<<<<< HEAD
   background-color: #f16126;
   padding: .6rem .5rem;
   /* font-size: 1rem; */
   font-weight: 600;
   color: white !important;
+=======
+  background-color: #dc2f02 !important;
+  padding: 0.6rem 0.5rem;
+  /* font-size: 1rem; */
+  font-weight: 600;
+  color: white !important;
+ display: flex;
+}
+.logout-btn {
+  padding: 0.6rem 0.5rem;
+  background-color: #fff !important;
+  color: #000;
+  border-radius: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.logout-btn svg {
+  margin-right: 0.4rem;
+>>>>>>> 20a9b6120a569acd4a4a3ae7f0d38499c3d53140
 }
 .logout-btn{
     padding: .6rem .7rem;
@@ -21,7 +74,13 @@
 }
 
 .signup{
+  padding: 0 !important;
+  width: 120px !important;
   background-color: transparent;
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+
 }
 .ant-btn-primary{
   background-color: #f16126;
@@ -34,7 +93,9 @@
   display: flex;
   flex-flow: wrap;
 }
-
+.ant-btn-primary{
+  background-color: #f16126 !important;
+}
 @media only screen and (max-width: 600px) {
 .addproject {
   margin: 0 !important;

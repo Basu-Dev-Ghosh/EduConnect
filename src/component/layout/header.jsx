@@ -49,7 +49,32 @@ const Header = () => {
   const [headerFiexd, setHeaderFiexd] = useState(false);
   const [auth, refetch, isLoading] = useContext(AuthContext);
   const { authenticated, user } = auth;
+  const [type, setType] = useState("student");
+  const [option, setOption] = useState("/login");
 
+<<<<<<< HEAD
+=======
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isModalOpen2, setIsModalOpen2] = useState(false);
+
+  const showModal = () => {
+    setIsModalOpen(true);
+  };
+  const handleOk = () => {
+
+   
+    navigate(option,  {
+      state: {
+        type,
+      }
+    });
+
+  };
+  const handleCancel = () => {
+    setIsModalOpen(false);
+  };
+
+>>>>>>> 20a9b6120a569acd4a4a3ae7f0d38499c3d53140
   window.addEventListener("scroll", () => {
     if (window.scrollY > 200) {
       setHeaderFiexd(true);
@@ -160,8 +185,9 @@ const Header = () => {
             <div className="menu-area">
               <div className="menu">
                 <ul className={`lab-ul ${menuToggle ? "active" : ""}`}>
-                  <li className="">
+                  <li className="home">
                     <NavLink to="/">Home</NavLink>
+                    
                     {/* role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-bs-offset="0,0" */}
                     {/* <ul className="lab-ul dropdown-menu">
                                             <li><NavLink to="/">Home One</NavLink></li>
@@ -174,7 +200,7 @@ const Header = () => {
                                         </ul> */}
                   </li>
 
-                  <li>
+                  <li className="home">
                     <NavLink to="/course">Projects</NavLink>
                   </li>
 
@@ -188,7 +214,7 @@ const Header = () => {
                                         </ul>
                                     </li> */}
 
-                  <li className="">
+                  <li className="home">
                     {/* <a href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-bs-offset="0,0">About</a> */}
                     {/* <ul className="lab-ul dropdown-menu">
                                             <li><NavLink to="/about">About</NavLink></li>
@@ -202,24 +228,42 @@ const Header = () => {
                                             <li><NavLink to="/404">404</NavLink></li>
                                         </ul> */}
                   </li>
-                  <li>
+                  <li className="home">
                     <NavLink to="/college">College</NavLink>
                   </li>
+<<<<<<< HEAD
                   <li>
                     <NavLink to="/contact">Contact</NavLink>
                   </li>
+=======
+
+                  <li className="home">
+
+
+                    <NavLink to="/contact">Contact</NavLink>
+                  </li>
+
+                  <li>
+                    <NavLink to="/aboutUs">About</NavLink>
+                  </li>
+
+>>>>>>> 20a9b6120a569acd4a4a3ae7f0d38499c3d53140
                   {authenticated ? (
                     <>
                       <li>
                         <Link
                           to="/addproject"
-                          className="addproject"
+                          className="addproject md:mr sm:mr-0"
                           style={{
                             borderRadius: "8px",
                             marginRight: "40px",
                             display: "flex",
                             alignItems: "center",
+<<<<<<< HEAD
                             marginLeft: "240px",
+=======
+                            marginLeft: "20px",
+>>>>>>> 20a9b6120a569acd4a4a3ae7f0d38499c3d53140
                           }}
                         >
                           <i className=""></i>{" "}
@@ -239,16 +283,44 @@ const Header = () => {
                         <button className="logout-btn" onClick={logout}>
                           <MdLogout />
                           Logout
+<<<<<<< HEAD
                         </button>
+=======
+                        </button> */}
+
+                        <Button className="logout-btn" onClick={()=>setIsModalOpen2(true)}>
+                          <MdLogout />
+                          Log Out
+                        </Button>
+                        <Modal
+                          style={{ top: 300 }}
+                          title="Confirm Logout"
+
+                          open={isModalOpen2}
+                          onOk={logout}
+                          onCancel={()=>setIsModalOpen2(false)}
+
+                        >
+                          <p>Are you sure, you want to log out?</p>
+                        </Modal>
+>>>>>>> 20a9b6120a569acd4a4a3ae7f0d38499c3d53140
                       </li>
                     </>
                   ) : (
                     <>
                       <li>
                         {" "}
+<<<<<<< HEAD
                         <Link
                           to="/login"
                           className="login"
+=======
+                        <button
+                          onClick={() => {
+                            setOption("/login");
+                            showModal();
+                          }}
+>>>>>>> 20a9b6120a569acd4a4a3ae7f0d38499c3d53140
                           style={{
                             borderRadius: "10px",
                             marginRight: "20px",
@@ -256,22 +328,30 @@ const Header = () => {
                             background: "#dc2f02",
                             color: "#fff",
                             marginTop: "4px",
-                            marginLeft: "300px",
                           }}
                         >
                           <i className="icofont-user"></i> <span>LOG IN</span>{" "}
-                        </Link>
+                        </button>
                       </li>
                       <li>
+<<<<<<< HEAD
                         <Button
                           to="/signUpas"
+=======
+                        <button
+
+>>>>>>> 20a9b6120a569acd4a4a3ae7f0d38499c3d53140
                           className="signup"
-                          onClick={showModal}
+                          onClick={() => {
+                            setOption("/signup");
+                            showModal();
+                          }}
                           style={{
                             backgroundColor: "transparent",
                             color: "black",
                             border: "1px solid black",
                             borderRadius: "10px",
+<<<<<<< HEAD
                             paddingBottom: "10px",
                             height: "55px",
                           }}
@@ -317,43 +397,103 @@ const Header = () => {
                                 Student
                               </div>
                             </div>
+=======
+                            padding:"12px 18px",
+                            marginTop: "4px",
+                            height:"47px",
+                          }}
+                        >
+>>>>>>> 20a9b6120a569acd4a4a3ae7f0d38499c3d53140
 
-                            <div
-                              className="modal_popUP"
-                              style={{
-                                paddingTop: "10px",
-                                paddingBottom: "10px",
-                                paddingLeft: "10px",
-                                marginTop: "10px",
-                                border: "1px solid grey",
-                                borderRadius: "5px",
-                              }}
-                            >
-                              <img
-                                src={universityImage}
-                                style={{
-                                  width: "50px",
-                                  height: "50px",
-                                  borderRadius: "50%",
-                                  border: "1px solid orange",
-                                }}
-                              ></img>
-                              <div
-                                style={{
-                                  fontSize: "20px",
-                                  paddingLeft: "30px",
-                                  paddingTop: "10px",
-                                }}
-                              >
-                                College
-                              </div>
-                            </div>
-                          </div>
-                        </Modal>
+                          <i
+                            className="icofont-users"
+                            style={{ fontSize: "1rem", margin: "0 10px" }}
+                          ></i>
+                          <span>SIGN UP</span>        
+                        </button>
+
                       </li>
                     </>
                   )}
                 </ul>
+                <Modal
+                  title="Select type"
+                  open={isModalOpen}
+                  onOk={handleOk}
+                  onCancel={handleCancel}
+                >
+                  <div>
+                    <div
+                      onClick={() =>{
+                        setType("student")
+                      } }
+                      className="modal_popUP bg-lime-500"
+                      style={{
+                        // paddingTop: "20px",
+                        border: `${type==='student'? "1px solid grey":""}`,
+                        borderRadius: "5px",
+                        paddingTop: "10px",
+                        paddingBottom: "10px",
+                        paddingLeft: "10px",
+                        cursor:"pointer"
+                      }}
+                    >
+                      {/* PiStudentDuotone */}
+                      <PiStudentDuotone
+                        // src={studentImage}
+                        style={{
+                          width: "50px",
+                          height: "50px",
+                          borderRadius: "50%",
+                          color: "orangered",
+                          // borderRadius: "50%",
+                          border: "1px solid orange",
+                        }}
+                      ></PiStudentDuotone>
+                      <div
+                        style={{
+                          fontSize: "20px",
+                          paddingLeft: "30px",
+                          paddingTop: "10px",
+                        }}
+                      >
+                        Student
+                      </div>
+                    </div>
+
+                    <div
+                    className={`modal_popUP `}
+                      onClick={() => setType("college")}
+                      style={{
+                        paddingTop: "10px",
+                        paddingBottom: "10px",
+                        paddingLeft: "10px",
+                        marginTop: "10px",
+                        border: `${type==='college'? "1px solid grey":""}`,
+                        borderRadius: "5px",
+                      }}
+                    >
+                      <img
+                        src={universityImage}
+                        style={{
+                          width: "50px",
+                          height: "50px",
+                          borderRadius: "50%",
+                          border: "1px solid orange",
+                        }}
+                      ></img>
+                      <div
+                        style={{
+                          fontSize: "20px",
+                          paddingLeft: "30px",
+                          paddingTop: "10px",
+                        }}
+                      >
+                        College
+                      </div>
+                    </div>
+                  </div>
+                </Modal>
               </div>
               <div
                 className={`header-bar d-lg-none ${menuToggle ? "active" : ""}`}
