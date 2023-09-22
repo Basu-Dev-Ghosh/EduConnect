@@ -1,96 +1,33 @@
-
-
-.home::after{
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  width: 100%;
-  height: 2px; /* Adjust the line thickness as needed */
-  background-color: #f16126; /* Color of the line */
-  transform: scaleX(0); /* Initially, the line has no width */
-  transform-origin: center; /* Start scaling from the center */
-  transition: transform 0.3s ease; 
-}
-
-.home:hover::after{
-  transform:scaleX(1);
-}
-
-.contact:after{
-  
-}
-
-.contact:hover::after{
-  transform:scaleX(1);
-}
-
-.course:hover{
-  color: #f16126;
-}
-
-
 .addproject {
-  background-color: #dc2f02 !important;
-  padding: 0.6rem 0.5rem;
+  background-color: #f16126;
+  padding: .6rem .5rem;
   /* font-size: 1rem; */
   font-weight: 600;
   color: white !important;
- display: flex;
 }
-.logout-btn {
-  padding: 0.6rem 0.5rem;
-  background-color: #fff !important;
-  color: #000;
-  border-radius: 8px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.logout-btn svg {
-  margin-right: 0.4rem;
-}
-
-
-.signup{
-  padding: 0 !important;
-  width: 120px !important;
-  background-color: transparent;
-  display: flex !important;
-  justify-content: center !important;
-  align-items: center !important;
-
-}
-
-.modal_popUP{
-  position: relative;
-  display: flex;
-  flex-flow: wrap;
-}
-.ant-btn-primary{
-  background-color: #f16126 !important;
-}
-@media only screen and (max-width: 600px) {
-  .addproject {
-    margin: 0 !important;
-    padding: 7px 10px;
-    font-size: 0.7rem;
-  }
-  .logout-btn {
-    color: #fff !important;
-  }
-}
-
 .logout-btn{
-  background-color:white;
-  border:solid 1px #f16126;
-  height:3.5rem;
-  width: 10rem; 
+    padding: .6rem .7rem;
+    background-color: transparent;
+    color: #f16126;
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+
 }
-.logout-btn:hover{
-  background-color: white !important;
-  color: rgb(16, 1, 1) !important;
+.logout-btn svg{
+    margin-right: .4rem;
 }
-.ant-modal{
-  align-content: space-around;
+
+@media only screen and (max-width: 600px) {
+.addproject {
+  margin: 0 !important;
+  padding: 7px 10px;
+  font-size: .7rem;
+
+}
+.logout-btn{
+  color: #fff !important;
+}
 }
