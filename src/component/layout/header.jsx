@@ -283,7 +283,7 @@ const Header = () => {
                     <>
                       <li>
                         {" "}
-                        <Link
+                        <button
                           to="/loginas"
                           className="login"
                           style={{
@@ -295,9 +295,83 @@ const Header = () => {
                             marginTop: "4px",
                             marginLeft: "300px",
                           }}
+                          onClick={showModal}
                         >
                           <i className="icofont-user"></i> <span>LOG IN</span>{" "}
-                        </Link>
+                        </button>
+                        <Modal
+                          title="Log in"
+                          open={isModalOpen}
+                          onOk={handleOk}
+                          onCancel={handleCancel}
+                        >
+                          <div>
+                            <div
+                              className="modal_popUP"
+                              style={{
+                                // paddingTop: "20px",
+                                border: "1px solid grey",
+                                borderRadius: "5px",
+                                paddingTop: "10px",
+                                paddingBottom: "10px",
+                                paddingLeft: "10px",
+                              }}
+                            >
+                              {/* PiStudentDuotone */}
+                              <PiStudentDuotone
+                                // src={studentImage}
+                                style={{
+                                  width: "50px",
+                                  height: "50px",
+                                  borderRadius: "50%",
+                                  color: "orangered",
+                                  // borderRadius: "50%",
+                                  border: "1px solid orange",
+                                }}
+                              ></PiStudentDuotone>
+                              <div
+                                style={{
+                                  fontSize: "20px",
+                                  paddingLeft: "30px",
+                                  paddingTop: "10px",
+                                }}
+                              >
+                                Student
+                              </div>
+                            </div>
+
+                            <div
+                              className="modal_popUP"
+                              style={{
+                                paddingTop: "10px",
+                                paddingBottom: "10px",
+                                paddingLeft: "10px",
+                                marginTop: "10px",
+                                border: "1px solid grey",
+                                borderRadius: "5px",
+                              }}
+                            >
+                              <img
+                                src={universityImage}
+                                style={{
+                                  width: "50px",
+                                  height: "50px",
+                                  borderRadius: "50%",
+                                  border: "1px solid orange",
+                                }}
+                              ></img>
+                              <div
+                                style={{
+                                  fontSize: "20px",
+                                  paddingLeft: "30px",
+                                  paddingTop: "10px",
+                                }}
+                              >
+                                College
+                              </div>
+                            </div>
+                          </div>
+                        </Modal>
                       </li>
                       <li>
                         <button
