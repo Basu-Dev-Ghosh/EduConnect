@@ -18,6 +18,9 @@ import SarbojitImage from './img/teamMember/Sarbojit.jpg'
 import SejalImage from './img/teamMember/Sejal.jpg'
 import SouvikImage from './img/teamMember/Souvik.jpg'
 import { flexbox } from '@mui/system';
+import { useState } from 'react';
+import PageHeader from '../component/layout/pageheader';
+import GroupSelect from '../component/sidebar/group-select';
 
 
 const { Meta } = Card;
@@ -68,11 +71,15 @@ const aboutList = [
 
 
 const AboutUs = () => {
+    const [category, setCategory] = useState("");
+    const [projects, setProjects] = useState([]);
   return (
     <Fragment>
             <Header />
+            <PageHeader title={"About Us"} curPage={"About"} />
+            {/* <GroupSelect setCategory={setCategory} /> */}
             <div className="blog-section padding-tb section-bg">
-                <div className="container" style={{marginTop:'200px', display:'flex', flexFlow:'wrap'}}>
+                <div className="container" style={{marginTop:'0px', display:'flex', flexFlow:'wrap'}}>
                                     {aboutList.map((val, i) => (
                                         <Card hoverable style={{width:'260px', height:'500px', marginLeft:'100px', marginTop:'100px'}} cover={<img alt="example" src={val.imgUrl} style={{height:'350px'}}/>} >
                                             <Meta title={val.name} description={val.desc} />
