@@ -90,13 +90,20 @@ const Routings = () => {
       <Route path="search-page" element={<SearchPage />} />
       <Route path="search-none" element={<SearchNone />} />
       <Route path="contact" element={<ContactPage />} />
-      <Route path="college" element={<College />} />
+      <Route path="college/:id" element={<College />} />
       <Route path="login" element={<LoginPage />} />
       <Route path="signup" element={<SignupPage />} />
       <Route path="loginas" element={<LogInAs />} />
       <Route path="signUpas" element={<SignUpAs />} />
       <Route path="addproject" element={<AddProject />} />
-      <Route path="editProfile" element={<ProtectedRoute auth={auth}><Edit /></ProtectedRoute>} />
+      <Route
+        path="editProfile"
+        element={
+          <ProtectedRoute auth={auth}>
+            <Edit />
+          </ProtectedRoute>
+        }
+      />
       <Route path="admin" element={<Admin />} />
       <Route path="forgetpass" element={<ForgetPass />} />
       <Route path="*" element={<ErrorPage />} />

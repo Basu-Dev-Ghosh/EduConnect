@@ -5,46 +5,32 @@ import kgp_iit from "../../assets/images/instructor/kgp_iit.svg";
 import durgapur_nit from "../../assets/images/instructor/durgapur_nit.png";
 import iem from "../../assets/images/instructor/iem.webp";
 import { motion } from "framer-motion";
+import axios from "axios";
+import { server } from "../../App";
+import { useQuery } from "react-query";
 
 const subTitle = "Our top Project Creators";
 const title = "Projects Uploaded by Visionary Educational Institutions";
 
-const instructorList = [
-  {
-    imgUrl: heritage,
-    imgAlt: "instructor rajibraj91 rajibraj",
-    name: "Heritage Institute of Technology, Kolkata",
-    degi: "Master of Engineering Degree",
-    courseCount: "08 projects",
-    studentAnroll: "30 students",
-  },
-  {
-    imgUrl: kgp_iit,
-    imgAlt: "instructor rajibraj91 rajibraj",
-    name: "Indian Institute of Technology,KGP",
-    degi: "Master of Engineering Degree",
-    courseCount: "08 projects",
-    studentAnroll: "30 students",
-  },
-  {
-    imgUrl: durgapur_nit,
-    imgAlt: "instructor rajibraj91 rajibraj",
-    name: "National Institute of Technology, Durgapur",
-    degi: "Master of Engineering Degree",
-    courseCount: "08 projects",
-    studentAnroll: "30 students",
-  },
-  {
-    imgUrl: iem,
-    imgAlt: "instructor rajibraj91 rajibraj",
-    name: "Institute of Engineering & Management, Kolkata",
-    degi: "Master of Engineering Degree",
-    courseCount: "08 projects",
-    studentAnroll: "30 students",
-  },
-];
-
 const Instructor = () => {
+  async function getColleges() {
+    try {
+      const res = await axios.get(`${server}college/`, {
+        withCredentials: true,
+      });
+      console.log(res);
+      if (res.status === 200) {
+        return res.data.data;
+      }
+    } catch (err) {
+      console.log(err);
+      return null;
+    }
+  }
+  const { data: colleges, isLoading } = useQuery(["colleges"], getColleges);
+  if (isLoading) {
+    return <p>Loading...</p>;
+  }
   return (
     <div className="instructor-section padding-tb section-bg">
       <div className="container">
@@ -54,7 +40,7 @@ const Instructor = () => {
         </div>
         <div className="section-wrapper">
           <div className="row g-4 justify-content-center row-cols-1 row-cols-sm-2 row-cols-lg-3 row-cols-xl-4">
-            {instructorList.map((val, i) => (
+            {colleges.map((val, i) => (
               <div className="col" key={i}>
                 <div className="instructor-item">
                   <div
@@ -68,9 +54,9 @@ const Instructor = () => {
                       style={{ display: "flex", justifyContent: "center" }}
                     >
                       <img
-                        src={`${val.imgUrl}`}
-                        alt={`${val.imgAlt}`}
-                        style={{ height: "200px" }}
+                        src={val?.Pic}
+                        alt={`${val.CollegeName}`}
+                        style={{ height: "250px" }}
                       />
                     </div>
                     <motion.div
@@ -87,21 +73,20 @@ const Instructor = () => {
                       viewport={{ once: true }}
                       className="instructor-content"
                     >
-                      <Link to="/team-single">
-                        <h4>{val.name}</h4>
+                      <Link to={`/college/${val.CollegeEmail}`}>
+                        <h4>{val.CollegeName}</h4>
                       </Link>
-                      <p>{val.degi}</p>
+
                       <Rating />
                     </motion.div>
                   </div>
                   <div className="instructor-footer">
                     <ul className="lab-ul d-flex flex-wrap justify-content-between align-items-center">
                       <li>
-                        <i className="icofont-book-alt"></i> {val.courseCount}
+                        <i className="icofont-book-alt"></i> 08 Projects
                       </li>
                       <li>
-                        <i className="icofont-users-alt-3"></i>{" "}
-                        {val.studentAnroll}
+                        <i className="icofont-users-alt-3"></i> 30 Students
                       </li>
                     </ul>
                   </div>

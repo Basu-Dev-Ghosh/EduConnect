@@ -19,7 +19,7 @@ const Home = () => {
            
             <Category />
             <Course />
-            <About />
+           
             <Instructor />
             <Student />
             <Achievement />

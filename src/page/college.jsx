@@ -5,34 +5,47 @@ import HeaderCollege from "../component/layout/headercollege";
 import Author from "../component/sidebar/author";
 
 import Projects from "../component/section/project-coll";
+import { useParams } from "react-router-dom";
+import { server } from "../App";
+import axios from "axios";
+import { useQuery } from "react-query";
 
 const College = () => {
+  const { id } = useParams();
+  async function getCollegeById() {
+    try {
+      const res = await axios.get(`${server}college/${id}`, {
+        withCredentials: true,
+      });
+      console.log(res);
+      if (res.status === 200) {
+        return res.data.data;
+      }
+    } catch (err) {
+      console.log(err);
+      return null;
+    }
+  }
+  const { data: college, isLoading } = useQuery(
+    ["college", id],
+    getCollegeById,
+    {
+      enabled: id !== undefined,
+    }
+  );
+  if (isLoading) {
+    return <p>Loading...</p>;
+  }
   return (
     <Fragment>
       <Header />
-      <HeaderCollege />
+      <HeaderCollege college={college} />
       <div className="course-single-section padding-tb section-bg">
         <div className="container">
           <div className="row justify-content-center">
             <div className="col-lg-10">
               <div className="main-part">
-                <div className="course-item">
-                  <div className="course-inner">
-                    <div className="course-content">
-                      <h3>College Overview</h3>
-                      <p>
-                        Heritage Institute of Technology, Kolkata, West Bengal
-                        is an autonomous institute which is affiliated to
-                        MAKAUT, Kolkata. It is accredited by NAAC and NBA and is
-                        AICTE approved. The institution mainly offers three
-                        programmes, B.Tech, M.Tech, and MCA. The institute has
-                        received the ‘Most Preferred Engineering Institute of
-                        2020’ award and was ranked at 201st position under
-                        Engineering category by the NIRF in 2022.
-                      </p>
-                    </div>
-                  </div>
-                </div>
+                <div className="course-item"></div>
                 <Projects />
 
                 <Author />

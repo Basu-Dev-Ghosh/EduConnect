@@ -1,7 +1,6 @@
 import logo from "../../assets/images/logo/logo.png";
 import { useState } from "react";
 import { Link, NavLink, useNavigate } from "react-router-dom";
-import { MdLogout } from "react-icons/md";
 import { LuSchool } from "react-icons/lu";
 import "./style.css";
 import { useQuery, useQueryClient } from "react-query";
@@ -12,8 +11,6 @@ import { UserOutlined } from "@ant-design/icons";
 import React from "react";
 import { Avatar } from "antd";
 import { Popover } from "antd";
-import { AiFillEdit } from "react-icons/ai";
-import { CgProfile } from "react-icons/cg";
 
 // import React, { useState } from "react";
 import { Modal } from "antd";
@@ -71,6 +68,7 @@ const Header = () => {
         });
         if (res.status === 200) {
           console.log(res.data.user);
+
           return res.data.user;
         }
         return {};
@@ -235,11 +233,11 @@ const Header = () => {
                                         </ul> */}
                   </li>
                   <li className="home">
-                    <NavLink to="/college">College</NavLink>
-                  </li>
-
-                  <li className="home">
-                    <NavLink to="/contact">Contact</NavLink>
+                    {profile?.CollegeEmail && (
+                      <NavLink to={`/college/${profile?.CollegeEmail}`}>
+                        College
+                      </NavLink>
+                    )}
                   </li>
 
                   <li>
