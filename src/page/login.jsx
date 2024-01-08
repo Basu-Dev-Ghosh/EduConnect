@@ -38,22 +38,26 @@ const LoginPage = () => {
     }
     try {
       setIsLoading(true);
-      const res = await axios.post(`${server}auth/login`, {
-        ...userData,
-        Type:type,
-      }, {
-        withCredentials: true,
-      });
+      const res = await axios.post(
+        `${server}auth/login`,
+        {
+          ...userData,
+          Type: type,
+        },
+        {
+          withCredentials: true,
+        }
+      );
       // console.log(res);
       if (res.status === 202) {
         if (type === "college") {
           toast(`Welcome ${res?.data?.user?.CollegeName}`, { type: "success" });
-          localStorage.setItem('user',JSON.stringify(res?.data?.user))
+          localStorage.setItem("user", JSON.stringify(res?.data?.user));
           setIsLoading(false);
           navigate("/admin");
         } else {
           toast(`Welcome ${res?.data?.user?.Name}`, { type: "success" });
-          localStorage.setItem('user',JSON.stringify(res?.data?.user))
+          localStorage.setItem("user", JSON.stringify(res?.data?.user));
           setIsLoading(false);
           navigate("/");
         }
@@ -76,7 +80,9 @@ const LoginPage = () => {
                 <input
                   type="text"
                   name="UserName"
-                  placeholder={`${type ==='student'?"User Name":"College Email"}`}
+                  placeholder={`${
+                    type === "student" ? "User Name" : "College Email"
+                  }`}
                   onChange={handleChange}
                 />
               </div>
@@ -102,7 +108,15 @@ const LoginPage = () => {
             </form>
             <div className="account-bottom">
               <span className="d-block cate pt-10">
-                Don’t Have any Account? <Link to="/signUpas">Sign Up</Link>
+                Don’t Have any Account?{" "}
+                <Link
+                  to="/signUpas"
+                  state={{
+                    type,
+                  }}
+                >
+                  Sign Up
+                </Link>
               </span>
             </div>
           </div>

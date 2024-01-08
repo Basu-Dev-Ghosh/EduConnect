@@ -60,14 +60,17 @@ const Instructor = () => {
                   <div
                     className="instructor-inner"
                     style={{
-                      height: "530px",
+                      height: "400px",
                     }}
                   >
-                    <div className="instructor-thumb">
+                    <div
+                      className="instructor-thumb"
+                      style={{ display: "flex", justifyContent: "center" }}
+                    >
                       <img
                         src={`${val.imgUrl}`}
                         alt={`${val.imgAlt}`}
-                        style={{ height: "260px" }}
+                        style={{ height: "200px" }}
                       />
                     </div>
                     <motion.div
@@ -109,7 +112,7 @@ const Instructor = () => {
           <div className="text-center footer-btn">
             <p>
               Want to upload projects, grow and achieve more in life?
-              <Link to="/team">Become a creator</Link>
+              <Link to="/">Become a creator</Link>
             </p>
           </div>
         </div>

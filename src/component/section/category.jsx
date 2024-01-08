@@ -14,36 +14,42 @@ const categoryList = [
     imgUrl: img1,
     imgAlt: "category rajibraj91 rajibraj",
     title: "Software Development",
+    value: "Software Develpment",
     count: "24 Projects",
   },
   {
     imgUrl: img2,
     imgAlt: "category rajibraj91 rajibraj",
     title: "Healthcare and Medical Devices",
+    value: "Healthcare and Medical Devices",
     count: "14 Projects",
   },
   {
     imgUrl: img3,
     imgAlt: "category rajibraj91 rajibraj",
     title: "Robotics",
+    value: "Robotics",
     count: "27 Projects",
   },
   {
     imgUrl: "assets/images/category/icon/04.jpg",
     imgAlt: "category rajibraj91 rajibraj",
     title: "Data Science And analysis",
+    value: "Data Science And analysis",
     count: "20 Projects",
   },
   {
     imgUrl: img5,
     imgAlt: "category rajibraj91 rajibraj",
-    title: "Artificial Intelligence and Machine Learning",
+    title: "AI ML",
+    value: "Machine Learning(ML)",
     count: "23 Projects",
   },
   {
     imgUrl: img6,
     imgAlt: "category rajibraj91 rajibraj",
     title: "Blockchain and Cryptocurrency",
+    value: "Blockchain and Cryptocurrency",
     count: "18 Projects",
   },
 ];
@@ -78,13 +84,17 @@ const Category = () => {
                     className="category-inner"
                     style={{
                       height: "270px",
+                      width: "100%",
                     }}
                   >
-                    <div className="category-thumb">
+                    <div
+                      className="category-thumb"
+                      style={{ display: "flex", justifyContent: "center" }}
+                    >
                       <img src={`${val.imgUrl}`} alt={val.imgAlt} />
                     </div>
                     <div className="category-content">
-                      <Link to="/course">
+                      <Link to="/course" state={{ category: val?.value }}>
                         <h6>{val.title}</h6>
                       </Link>
                       <span>{val.count}</span>
@@ -93,11 +103,6 @@ const Category = () => {
                 </div>
               </motion.div>
             ))}
-          </div>
-          <div className="text-center mt-5">
-            <Link to="/course" className="lab-btn">
-              <span>{btnText}</span>
-            </Link>
           </div>
         </div>
       </div>

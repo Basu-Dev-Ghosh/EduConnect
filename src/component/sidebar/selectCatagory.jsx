@@ -1,25 +1,37 @@
+const SelectCatagory = ({ select, setCategory }) => {
+  return (
+    <select
+      defaultValue={select}
+      onChange={(e) => {
+        console.log(e.target.value);
+        setCategory(e.target.value);
+      }}
+    >
+      <option value="all">All Categories</option>
+      <option value="all">Uncategorized</option>
+      <option value="Software Develpment">Software Development</option>
+      <option value="Artificial Intelligence(AI)">
+        Artificial Intelligence
+      </option>
+      <option value="Machine Learning(ML)">Machine Learning</option>
+      <option value="Electrical Engineering">Electrical Engineering</option>
+      <option value="Mechanical Engineering">Mechanical Engineering</option>
+      <option value="Civil Engineering">Civil Engineering</option>
+      <option value="Biotechnology"> Biotechnology and life-science</option>
+      <option value="Environmental Science">Environmental science</option>
+      <option value="Aerospace and Aeronautical Engineering">
+        Aerospace and Aeronautical engineering
+      </option>
+      <option value="Telecommunication">Telecommunication</option>
+      <option value="Healthcare and Medical Devices">
+        Healthcare and Medical Devices
+      </option>
+      <option value="Chemistry">Chemistry</option>
+      <option value="Cybersecurity">Cybersecurity</option>
+      <option value="Robotics">Robotics</option>
+      <option value="Others">Others</option>
 
-
-const SelectCatagory = ({select,setCategory}) => {
-    return (
-        <select defaultValue={select} onChange={(e)=>setCategory(e.target.value)}>
-            <option value="all">All Categories</option>
-            <option value="all">Uncategorized</option>
-            <option value="Software Develpment">Software Development</option>
-            <option value="Artificial Intelligence(AI)">Artificial Intelligence</option>
-            <option value="Machine Learning(ML)">Machine Learning</option>
-            <option value="Electrical Engineering">Electrical Engineering</option>
-            <option value="Mechanical Engineering">Mechanical Engineering</option>
-            <option value="Civil Engineering">Civil Engineering</option>
-            <option value="Biotechnology"> Biotechnology and life-science</option>
-            <option value="Environmental Science">Environmental science</option>
-            <option value="Aerospace and Aeronautical Engineering">Aerospace and Aeronautical engineering</option>
-            <option value="Telecommunication">Telecommunication</option>
-            <option value="Chemistry">Chemistry</option>
-            <option value="Cybersecurity">Cybersecurity</option>
-            <option value="Others">Others</option>
- 
-{/*             <option value="education">Education</option>
+      {/*             <option value="education">Education</option>
             <option value="entertainment">Entertainment</option>
             <option value="environment">Environment</option>
             <option value="environmental">Environmental</option>
@@ -58,9 +70,9 @@ const SelectCatagory = ({select,setCategory}) => {
             <option value="woocommerce">WooCommerce</option>
             <option value="yoga">Yoga</option>
             <option value="magazine">Magazine</option>
-            <option value="event-wordpress">Event</option>   */}                      
-        </select>
-    );
-}
- 
+            <option value="event-wordpress">Event</option>   */}
+    </select>
+  );
+};
+
 export default SelectCatagory;

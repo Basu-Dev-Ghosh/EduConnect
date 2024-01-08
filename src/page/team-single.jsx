@@ -113,7 +113,7 @@ const awardList = [
 ];
 
 const TeamSingle = () => {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   const { data: profile, isLoading } = useQuery(["profile"], async () => {
     try {
@@ -138,66 +138,67 @@ const TeamSingle = () => {
         <div className="container">
           <div className="instructor-wrapper">
             <div className="instructor-single-top">
-
               <div className="instructor-single-item d-flex flex-wrap justify-content-between">
                 <div className="instructor-single-thumb">
-                  {
-                    profile.Pic ? <img
-
-                      src={profile?.Pic}
-
-                      alt="instructor"
-                    /> : <img
-
-                      src={"https://www.pngkey.com/png/full/115-1150152_default-profile-picture-avatar-png-green.png"}
-
+                  {profile.Pic ? (
+                    <img src={profile?.Pic} alt="instructor" />
+                  ) : (
+                    <img
+                      src={
+                        "https://www.pngkey.com/png/full/115-1150152_default-profile-picture-avatar-png-green.png"
+                      }
                       alt="instructor"
                     />
-                  }
-
+                  )}
                 </div>
                 <div className="instructor-single-content">
-
-                  <div style={{
-                    display: "flex"
-                  }}>
+                  <div
+                    style={{
+                      display: "flex",
+                    }}
+                  >
                     <h4 className="title">{profile?.Name}</h4>
-                    {/* <span style={{ marginLeft: "20rem", fontSize: "1rem", cursor: 'pointer', color: "black", border:"solid orange 2px", borderRadius:"5px" }} onClick={() => {
-                      navigate('/editProfile')
-                    }}>
-                      <AiFillEdit />EDIT PROFILE
-                    </span> */}
+                   
                     <span>
-                      <a  style={{ marginLeft: "15rem", display: "flex",alignItems:"center",borderRadius:"15px",justifyContent:"space-around",backgroundColor:"#fff",color:"black"}} href="/editProfile" class="btn btn-primary" role="button"><AiFillEdit />Edit</a>
-
+                      <a
+                        style={{
+                          marginLeft: "15rem",
+                          display: "flex",
+                          alignItems: "center",
+                          borderRadius: "15px",
+                          width: "9rem",
+                          justifyContent: "center",
+                          backgroundColor: "#fff",
+                          color: "black",
+                        }}
+                        href="/editProfile"
+                        class="btn btn-primary"
+                        role="button"
+                      >
+                        <AiFillEdit style={{ marginRight: "10px" }} />
+                        Edit Profile
+                      </a>
                     </span>
                   </div>
-                    
+
                   <p className="ins-dege">Username : {profile?.UserName}</p>
-                  <p className="ins-dege">College name : {profile?.CollegeName}</p>
+                  <p className="ins-dege">
+                    College name : {profile?.CollegeName}
+                  </p>
                   <Rating />
                   <h6 className="subtitle">{subTitle}</h6>
                   <p className="ins-desc">{profile?.Bio}</p>
                   <ul className="lab-ul">
-
-
-                    <li
-                      className="d-flex flex-wrap justify-content-start"
-
-                    >
+                    <li className="d-flex flex-wrap justify-content-start">
                       <span className="list-name">{"Address"}</span>
                       <span className="list-attr">{profile?.Address}</span>
                     </li>
-                    <li
-                      className="d-flex flex-wrap justify-content-start"
-
-                    >
-
+                    <li className="d-flex flex-wrap justify-content-start">
                       <span className="list-name">{"Email"}</span>
                       <span className="list-attr">{profile?.Email}</span>
                     </li>
                     <li className="d-flex flex-wrap justify-content-start">
-                      <span className="list-name">Follow Us</span>
+                      <span className="list-name">Follow Me</span>
                       <ul className="lab-ul list-attr d-flex flex-wrap justify-content-start">
                         {memSocialList.map((val, i) => (
                           <li key={i}>
@@ -210,30 +211,6 @@ const TeamSingle = () => {
                     </li>
                   </ul>
                 </div>
-              </div>
-            </div>
-            <div className="instructor-single-bottom d-flex flex-wrap mt-4">
-              <div className="col-xl-6 pb-5 pb-xl-0 d-flex flex-wrap justify-content-lg-start justify-content-between">
-                <h4 className="subtitle">{skillTitle}</h4>
-                {skillList.map((val, i) => (
-                  <div className="text-center skill-item" key={i}>
-                    <div className="skill-thumb">
-                      <Progress strokeWidth={8} percentage={val.percentage} />
-                    </div>
-                    <p>{val.text}</p>
-                  </div>
-                ))}
-              </div>
-              <div className="col-xl-6 d-flex flex-wrap justify-content-lg-start justify-content-between">
-                <h4 className="subtitle">{awardTitle}</h4>
-                {awardList.map((val, i) => (
-                  <div className="skill-item text-center" key={i}>
-                    <div className="skill-thumb">
-                      <img src={`${val.imgUrl}`} alt={`${val.imgAlt}`} />
-                    </div>
-                    <p>{val.text}</p>
-                  </div>
-                ))}
               </div>
             </div>
           </div>

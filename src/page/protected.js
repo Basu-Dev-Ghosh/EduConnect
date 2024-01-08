@@ -1,18 +1,11 @@
 import React from "react";
 import { Navigate, useLocation } from "react-router-dom";
-import { useContext } from "react";
-import AuthContext from "../context/authContext";
 
-const ProtectedRoute = ({ children }) => {
-  const [auth, refetch, isLoading] = useContext(AuthContext);
-  let location = useLocation();
-
-  if (isLoading) return <p>Loading...</p>;
+const ProtectedRoute = ({ auth, children }) => {
   if (!auth) {
-    return <Navigate to="/login" state={{ from: location }} replace />;
-  } else {
-    return children;
+    return <Navigate to="/" replace />;
   }
+  return children;
 };
 
 export default ProtectedRoute;

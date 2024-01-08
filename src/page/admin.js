@@ -286,9 +286,7 @@ const Project = ({ project, projects, setProject, setPage, refetch }) => {
                           onClick={() => setOpenReject(true)}
                           className="inline-flex items-center justify-center py-2 px-3 rounded-xl bg-yellow-600 text-white ml-3 text-sm font-semibold transition"
                         >
-                          {
-                            "Plagiarism check with AI"
-                          }
+                          {"Plagiarism check with AI"}
                         </button>
                       </div>
                     </div>
@@ -403,6 +401,7 @@ const Admin = () => {
       });
       console.log(res);
       if (res.status === 204) {
+        localStorage.removeItem("user");
         refetch();
         navigate("/");
       }
@@ -471,18 +470,17 @@ const Admin = () => {
         <header className="fixed right-0 top-0 left-60 bg-white py-3 px-4 h-16">
           <div className="max-w-6xl mx-auto">
             <div className="flex items-center justify-between">
-             
               <div className="text-lg flex items-center">
-              <div className="h-12 w-12  border-2 rounded-full mr-3">
-              <img
-                className="object-cover w-full h-full rounded-full"
-                src={
-                  college?.Pic
-                    ? college?.Pic
-                    : "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.japanpowered.com%2Fanime-articles%2Fanime-high-school&psig=AOvVaw0eRzmDPeRlg1oaddo_Zkwb&ust=1695465074897000&source=images&cd=vfe&ved=0CBAQjRxqFwoTCPC7ud2BvoEDFQAAAAAdAAAAABAH"
-                }
-              />
-            </div>
+                <div className="h-12 w-12  border-2 rounded-full mr-3">
+                  <img
+                    className="object-cover w-full h-full rounded-full"
+                    src={
+                      college?.Pic
+                        ? college?.Pic
+                        : "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.japanpowered.com%2Fanime-articles%2Fanime-high-school&psig=AOvVaw0eRzmDPeRlg1oaddo_Zkwb&ust=1695465074897000&source=images&cd=vfe&ved=0CBAQjRxqFwoTCPC7ud2BvoEDFQAAAAAdAAAAABAH"
+                    }
+                  />
+                </div>
                 {college?.CollegeName.toUpperCase()}
               </div>
               <div>
@@ -518,7 +516,7 @@ const Admin = () => {
                       src={logo}
                       alt="logo"
                       style={{
-                        width: "140px",
+                        width: "200px",
                       }}
                     />
                   </div>

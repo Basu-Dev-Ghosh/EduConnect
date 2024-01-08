@@ -76,14 +76,14 @@ const SignupPage = () => {
           toast(`Welcome ${res.data.user.Name || res.data.user.CollegeName}`, {
             type: "success",
           });
-          localStorage.setItem('user',JSON.stringify(res?.data?.user))
+          localStorage.setItem("user", JSON.stringify(res?.data?.user));
           setIsLoading(false);
           navigate("/admin");
         } else {
           toast(`Welcome ${res.data.user.Name || res.data.user.CollegeName}`, {
             type: "success",
           });
-          localStorage.setItem('user',JSON.stringify(res?.data?.user))
+          localStorage.setItem("user", JSON.stringify(res?.data?.user));
           setIsLoading(false);
           navigate("/");
         }
@@ -163,7 +163,7 @@ const SignupPage = () => {
                     />
                     <label htmlFor="profile" className="upploadLabel">
                       <BsUpload />{" "}
-                      {userData?.Pic ? "Uploaded" : "Upload your logo"}
+                      {userData?.Pic ? "Uploaded" : "Upload Your Logo"}
                     </label>
                   </>
                 ) : null}
@@ -208,7 +208,15 @@ const SignupPage = () => {
             </form>
             <div className="account-bottom">
               <span className="d-block cate pt-10">
-                Are you a member? <Link to="/login">Login</Link>
+                Are you a member?{" "}
+                <Link
+                  to="/login"
+                  state={{
+                    type,
+                  }}
+                >
+                  Login
+                </Link>
               </span>
             </div>
           </div>

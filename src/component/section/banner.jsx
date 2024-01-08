@@ -124,7 +124,7 @@ const Banner = () => {
                   <form
                     style={{
                       borderRadius: "12px !important",
-                      zIndex: "1000",
+
                       width: "100%",
                     }}
                     action="/"

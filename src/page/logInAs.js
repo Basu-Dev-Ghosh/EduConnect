@@ -2,7 +2,7 @@ import React from "react";
 import Footer from "../component/layout/footer";
 import Header from "../component/layout/header";
 import { Fragment } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import studentLogo from "../assets/images/logo/student.png";
 import collegeLogo from "../assets/images/logo/university.png";
 
@@ -12,6 +12,8 @@ const title = "LOG IN AS";
 // const btnText = "Get Started Now";
 
 const LogInAs = () => {
+  const location = useLocation();
+  const { type } = location?.state;
   return (
     <Fragment>
       <Header />
@@ -68,7 +70,15 @@ const LogInAs = () => {
             </form>
             <div className="account-bottom">
               <span className="d-block cate pt-10">
-                don't have an account?? <Link to="/signupas">Signup</Link>
+                don't have an account??{" "}
+                <Link
+                  to="/signupas"
+                  state={{
+                    type,
+                  }}
+                >
+                  Signup
+                </Link>
               </span>
             </div>
           </div>

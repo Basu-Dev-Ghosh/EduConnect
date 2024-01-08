@@ -14,7 +14,9 @@
   border: 1px dashed rgb(198, 198, 198);
   text-align: left;
   cursor: pointer;
-  justify-content: center;
+  display: flex;
+  align-items: center;
+  color: #5f5f5f;
 }
 .ant-spin-dot-item {
   background-color: #fff !important;

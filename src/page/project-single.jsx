@@ -44,43 +44,55 @@ const CourseSingle = () => {
     <Fragment>
       <Header />
       <div className="pageheader-section style-2">
-        <div className="container" style={{height:"480px"}}>
+        <div className="container" style={{ height: "480px" }}>
           <div className="row justify-content-center justify-content-lg-between align-items-center flex-row-reverse">
             <div className="col-lg-6 col-12">
-              <div className="pageheader-thumb" style={{width:"100%"}}>
-                <img src={project?.CoverPic} alt={project?.Title} className="w-100 flex justify-center items-center" />
+              <div className="pageheader-thumb" style={{ width: "100%" }}>
+                <img
+                  src={project?.CoverPic}
+                  alt={project?.Title}
+                  className="w-100 flex justify-center items-center"
+                />
                 <a
-                  href={project?.DownloadLink}
+                  href={project?.ViewLink}
+                  target="_blank"
                   className="video-button popup flex justify-center items-center"
                 >
-                  <BsDownload style={{
-                    position:'absolute',
-                    top:"50%",
-                    left:"50%",
-                    transform:'translate(-50%, -50%)'}}/>
+                  <BsDownload
+                    style={{
+                      position: "absolute",
+                      top: "50%",
+                      left: "50%",
+                      transform: "translate(-50%, -50%)",
+                    }}
+                  />
                 </a>
               </div>
             </div>
             <div className="col-lg-5 col-12">
               <div className="pageheader-content">
-                <div className="course-category" style={{display:"flex"}}>
-                 <p className="course-cate">{project?.Category}</p>
-                 <p className="course-offer">{project?.Status}</p>
+                <div className="course-category" style={{ display: "flex" }}>
+                  <p className="course-cate">{project?.Category}</p>
+                  <p className="course-offer">{project?.Status}</p>
                 </div>
                 <h2 className="phs-title">{project?.Title}</h2>
                 <p className="phs-desc">{project?.Description}</p>
                 <div className="phs-thumb">
-                {
-                  project?.AuthorImage ?  <img src={project?.AuthorImage} alt="rajibraj91" />:null
-                }
-                 
+                  {project?.AuthorImage ? (
+                    <img src={project?.AuthorImage} alt="rajibraj91" />
+                  ) : null}
+
                   <span>{project?.AuthorName}</span>
                   <div className="course-reiew">
-                  <Rating />
-                  <span className="ratting-count">{project?.ReviewCount}</span>
+                    <Rating />
+                    <span className="ratting-count">
+                      {project?.ReviewCount}
+                    </span>
                   </div>
-                  </div>
-                  <span style={{fontSize:".8rem"}}>{project?.CollegeName}</span>
+                </div>
+                <span style={{ fontSize: ".8rem" }}>
+                  {project?.CollegeName}
+                </span>
               </div>
             </div>
           </div>
@@ -93,17 +105,20 @@ const CourseSingle = () => {
               <div className="main-part">
                 <div className="course-item">
                   <div className="course-inner">
-                    <div className="course-content"  dangerouslySetInnerHTML={{__html: project?.Info}}/>
-                     
-                   
+                    <div
+                      className="course-content"
+                      dangerouslySetInnerHTML={{ __html: project?.Info }}
+                    />
                   </div>
                 </div>
-                <Author profile={{
-                  name:project?.AuthorName,
-                  image:project?.AuthorImage,
-                  college:project?.CollegeName,
-                  state:project?.State
-                }}/>
+                <Author
+                  profile={{
+                    name: project?.AuthorName,
+                    image: project?.AuthorImage,
+                    college: project?.CollegeName,
+                    state: project?.State,
+                  }}
+                />
                 <Comment />
                 <Respond />
               </div>
@@ -113,7 +128,7 @@ const CourseSingle = () => {
                 {
                   //<CourseSideDetail />
                 }
-                <CourseSideCetagory  />
+                <CourseSideCetagory />
               </div>
             </div>
           </div>
